@@ -4,30 +4,28 @@ Little video explaining the usage is on youtube:
 http://youtu.be/tsMdusrO6bk
 
 ```
-sudo apt-get install python-serial python-wxgtk2.8 python-pyglet
-wget https://github.com/kliment/Printrun/tarball/master
-mv master pronterface_src.tar.gz
-tar -xzvf pronterface_src.tar.gz
-
-
+# install prconsole
 cd /home/pi
-apt-get install node-js git
-#install npm
-curl https://npmjs.org/install.sh | sh
+sudo apt-get install python-serial python-wxgtk2.8 python-pyglet
+wget https://github.com/kliment/Printrun/tarball/master -O pronterface_src.tar.gz
+tar -xzvf pronterface_src.tar.gz
+mv kliment-Printrun-* printrun
+mkdir /hom/pi/printrun/
 
-#get printerface
+# install node.js and npm
+cd /home/pi
+sudo apt-get install nodejs npm git
+
+# get printerface
 cd /home/pi
 git clone git://github.com/w-A-L-L-e/printerface.git
+mkdir /home/pi/printerface/gcode_uploads
 
-#forever keeps our printerface running even if it crashes, and creates a logfile while we're at it...
+# forever keeps our printerface running even if it crashes, and creates a logfile while we're at it...
 sudo npm install -g forever@0.9.2
 
-#now actually fire it up, put this line in /etc/rc.local to have it on boot
+# now actually fire it up, put this line in /etc/rc.local to have it on boot
 cd /home/pi/printerface && forever start printerface.js
-
-
-
 ```
 
-
-
+Once started, you can access the web interface at http://<IP>:8080/
