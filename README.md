@@ -28,4 +28,4 @@ sudo npm install -g forever@0.9.2
 cd /home/pi/printerface && forever start printerface.js
 ```
 
-Once started, you can access the web interface at http://<IP>:8080/
+Once started, you can access the web interface at `http://<IP>:8080/`
